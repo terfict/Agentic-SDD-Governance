@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0",
+  "workId": "<PROJECT-WORK-ID>",
+  "title": "<Project / Work Package Acceptance Contract>",
+  "status": "ACTIVE",
+  "priority": "P0",
+  "baselineSha": "<BASELINE_COMMIT_SHA>",
+  "authoritativeSpecs": [
+    "docs/specs/product/PRODUCT_TRUTH.md",
+    "docs/specs/architecture/ARCHITECTURE.md",
+    "docs/specs/ui/UI_MASTER_SPEC.md"
+  ],
+  "scope": {
+    "goal": "<What this work package must accomplish>",
+    "include": [
+      "<included capability 1>",
+      "<included capability 2>"
+    ],
+    "exclude": [
+      "<excluded capability 1>",
+      "<excluded capability 2>"
+    ]
+  },
+  "hardInvariants": [
+    "Specification determines implementation",
+    "Exactly one authorized active stage",
+    "One canonical writable semantic state where applicable",
+    "Gate PASS must prove the exact authoritative requirement",
+    "Evidence must bind to committed source",
+    "No agent self-acceptance",
+    "No agent self-authorization of next stage",
+    "No unapproved paid/external side effects"
+  ],
+  "gates": [
+    {
+      "id": "GATE-01",
+      "requirement": "<Exact, testable requirement>",
+      "evidence": ["source", "unit-test"]
+    },
+    {
+      "id": "GATE-02",
+      "requirement": "<Exact user-visible or product-path requirement>",
+      "evidence": ["browser-assertion", "canonical-state"]
+    },
+    {
+      "id": "GATE-03",
+      "requirement": "<Exact negative/extensibility requirement>",
+      "evidence": ["negative-test", "source-diff"]
+    }
+  ],
+  "requiredBrowserJourneys": [
+    "<Journey 1, when applicable>"
+  ],
+  "safety": {
+    "paidProviderAllowed": false,
+    "productionWriteAllowed": false,
+    "destructiveMigrationAllowed": false,
+    "paidProviderSubmissions": 0
+  },
+  "completion": "All required gates PASS with committed-source-consistent evidence and explicit Reviewer approval. The implementation agent must not self-mark the work ACCEPTED."
+}
